@@ -1,6 +1,7 @@
 // Error messages
 const empytDefaultMessage = 'Invalid entries. Try again.';
 const invalidDefaultMessage = 'Invalid entries. Try again.';
+const emailAlreadyExists = 'Email already registered';
 
 // http codes
 const badRequest = 400;
@@ -30,7 +31,7 @@ const usersErrors = {
   },
   alreadyExists: {
     email: {
-      message: 'Email already registered.',
+      message: emailAlreadyExists,
       code: conflict,
     },
   },
