@@ -1,6 +1,6 @@
-const usersError = require('./usersError');
+const usersErrors = require('./usersErrors');
 
-const { empyt } = usersError;
+const { empyt } = usersErrors;
 
 const empytPassword = (password) => { 
   if (!password

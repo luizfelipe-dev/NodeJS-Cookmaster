@@ -1,6 +1,6 @@
-const usersError = require('./usersError');
+const usersErrors = require('./usersErrors');
 
-const { empyt, invalid } = usersError;
+const { empyt, invalid } = usersErrors;
 
 const empytEmail = (email) => { 
   if (!email) { return true; }

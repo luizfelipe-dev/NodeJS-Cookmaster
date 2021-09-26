@@ -1,7 +1,7 @@
 const usersServices = require('../../services/usersServices');
-const usersError = require('./usersError');
+const usersErrors = require('./usersErrors');
 
-const { alreadyExists } = usersError;
+const { alreadyExists } = usersErrors;
 
 // Função que veririca se o email já existe (se é repetido);
 const emailAlreadyExists = async (email) => {
