@@ -15,5 +15,5 @@ const getConnection = () => MongoClient
 });
 
 module.exports = {
-    getConnection,
+  getConnection,
 };
