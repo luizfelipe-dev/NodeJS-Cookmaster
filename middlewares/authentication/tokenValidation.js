@@ -10,8 +10,8 @@ const tokenValidation = async (req, res, next) => {
     const decoded = jwt.verify(token, secret); // O método verify, verifica a validação e decodificar o token JWT. Caso o token esteja expirado, a própria biblioteca irá retornar um erro.
     const user = await recipesServices.getByProperty('name', decoded.name); // Se o token é válido, buscar o usuário no bando de dados.
     if (!user) { return res.status(401).json({ message: 'Erro ao procurar usuário do token.' }); }
-    req.user = user; // Disponibilizando o user para outros middlewares
-    console.log(user);
+    const { _id: id } = user;
+    req.userId = id; // Disponibilizando o user para outros middlewares
     next();
   } catch (err) {
     return res.status(401).json({ message: err.message });
@@ -20,18 +20,25 @@ const tokenValidation = async (req, res, next) => {
 
 module.exports = { tokenValidation };
 
-// Para descripitografar o token
-// echo 'tokenJWT' | base64 --decode
+// DESCRIPTOGRAFANDO O TOKEN JWT
+/*
+# 1. Pelo terminal:
+  echo 'tokenJWT' | base64 --decode
+*/
 
-    /*
-      A variável decoded será um objeto equivalente ao seguinte:
-      {
-        data: {
-          _id: '5e54590ba49448f7e5fa73c0',
-          username: 'italssodj',
-          password: 'senha123'
-        },
-        iat: 1582587327,
-        exp: 1584774714908
-      }
-    */
+/*
+# 2. Pelo pacote jsonwebtoken, dentro do node.js:
+const decode = jwt.verify(token, secret)
+// A variável decoded retorna o seguinte objeto:
+
+{ _id: '614f93d4731b88de6cfb03e6',        // Valor de entrada na criaçaõ do token
+  name: 'Erick Jacquin',                  // Valor de entrada na criaçaõ do token
+  email: 'erickjacquin@gmail.com',        // Valor de entrada na criaçaõ do token
+  role: 'user',                           // Valor de entrada na criaçaõ do token
+  iat: 1632802338,                        // Tipo do Algorítimo de criptografia
+  exp: 1632975138                         // Prazo de para o token expirar
+}
+
+// O retorno do decode, são os mesmos parâmetros utilizados na criação do token.
+// NUNCA usar o password do usuário para gerar o token!
+*/

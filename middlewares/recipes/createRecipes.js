@@ -1,9 +1,11 @@
-const usersServices = require('../../services/usersServices');
+const recipesServices = require('../../services/recipesServices');
 
-const createUser = async (req, res) => {
-    const { name, email, password } = req.body;
-    const data = await usersServices.create(name, email, password);
-    return res.status(201).json({ user: data });
+const createRecipes = async (req, res) => {
+    const { userId } = req;
+    console.log(userId);
+    const { name, ingredients, preparation } = req.body;
+    const recipeCreated = await recipesServices.create(name, ingredients, preparation, userId);
+    return res.status(201).json({ recipe: recipeCreated });
 };
 
-module.exports = { createUser };
+module.exports = { createRecipes };
