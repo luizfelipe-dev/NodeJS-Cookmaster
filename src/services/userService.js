@@ -10,7 +10,7 @@ const jwtConfig = {
     algorithm: 'HS256',
 };
 
-// o segredo está aqui apenas para o avaliador funcionar
+// o segredo está aqui apenas para demonstração
 const secret = '12345';
 
 const createUserService = async (name, email, password) => {

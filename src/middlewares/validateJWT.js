@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-// o segredo está aqui apenas para o avaliador funcionar
+// o segredo está aqui apenas para demonstração
 const secret = '12345';
 
 const validateToken = async (req, res, next) => {
