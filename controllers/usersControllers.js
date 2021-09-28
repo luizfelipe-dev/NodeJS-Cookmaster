@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const { createUser } = require('../middlewares/users/createUser');
 const { getAllUsers } = require('../middlewares/users/getAllUsers');
+const { getUserById } = require('../middlewares/users/getUserById');
 
 const { nameValidation } = require('../middlewares/users/nameValidation');
 const { passwordValidation } = require('../middlewares/users/passwordValidation');
@@ -29,6 +30,11 @@ http POST :3000/users/ name='Lucas' email='erickjacquin@gmail.com' password=''
 router.get('/', getAllUsers, async () => {});
 /* REQUISIÇÃO:
 http GET :3000/users
+*/
+
+router.get('/:id', getUserById, async () => {});
+/* REQUISIÇÃO:
+http GET :3000/users/614f93d4731b88de6cfb03e6
 */
 
 module.exports = router;

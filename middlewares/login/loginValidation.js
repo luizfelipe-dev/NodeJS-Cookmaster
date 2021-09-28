@@ -22,7 +22,6 @@ const loginValidation = async (req, res, next) => {
   let errorCode;
   const { email, password } = req.body;
   const user = await searchLogin(email, password);
-  console.log(user);
   try {
     if (user === true) {
       errorCode = invalid.email.code;

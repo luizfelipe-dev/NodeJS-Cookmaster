@@ -2,7 +2,7 @@ const { Router } = require('express');
 
 const { loginValidation } = require('../middlewares/login/loginValidation');
 const { emptyFildValidation } = require('../middlewares/login/emptyFildValidation');
-const { tokenGenerator } = require('../middlewares/login/tokenGenerator');
+const { tokenGenerator } = require('../middlewares/authentication/tokenGenerator');
 
 const router = Router();
 

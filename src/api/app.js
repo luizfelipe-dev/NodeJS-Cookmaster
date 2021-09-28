@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const usersControllers = require('../../controllers/usersControllers');
 const loginControllers = require('../../controllers/loginControllers');
+const recipesControllers = require('../../controllers/recipesControllers');
 
 const app = express();
 
@@ -18,5 +19,8 @@ app.use('/users', usersControllers);
 
 // Todas as rotas a partir de /login serão tratadas no loginControllers;
 app.use('/login', loginControllers);
+
+// Todas as rotas a partir de /recipes serão tratadas no loginControllers;
+app.use('/recipes', recipesControllers);
 
 module.exports = app;
