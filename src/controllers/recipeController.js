@@ -35,20 +35,15 @@ const editRecipeController = async (req, res) => {
 const deleteRecipeController = async (req, res) => {
     const { id } = req.params;
     const { userId, role } = req.user;
-    
     const recipe = await recipeService.deleteRecipeService(id, userId, role);
-    if (recipe === '401') return res.status(401).json({ message: 'invalid token' });
-    if (recipe === false) return res.status(401).json({ message: 'missing auth token' });
-    if (recipe) return res.status(204).end();
+    res.status(recipe.status).json(recipe.message);
 };
 
 const uploadRecipeImageController = async (req, res) => {
     const { id } = req.params;
     const { role, userId } = req.user;
     const path = `src/uploads/${id}.jpeg`;
-
     const uploadImage = await recipeService.uploadRecipeImageService(id, path, userId, role);
-
     res.status(uploadImage.status).send(uploadImage.message);
 };
 

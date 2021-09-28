@@ -35,6 +35,7 @@ const editRecipeModel = async (objId, name, ingredients, preparation) => {
 const deleteRecipeModel = async (objId) => {
     const db = await connection();
     await db.collection('recipes').deleteOne({ _id: objId });
+    return true;
 };
 
 const uploadRecipeImageModel = async (objId, path) => {

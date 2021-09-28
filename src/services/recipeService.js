@@ -49,17 +49,24 @@ const editRecipeService = async (params) => {
 
 const deleteRecipeService = async (id, userId, role) => {
     const objId = ObjectId(id);
-
-    if (!ObjectId.isValid(id)) return '401';
-
     const getRecipe = await getRecipeByIdService(id);
 
-    if (role !== 'admin' && userId !== getRecipe.message.userId) {
-        return false;
+    if (!ObjectId.isValid(id)) {
+        return {
+            status: 401,
+            message: 'invalid token',
+        };
+    }
+
+    if (userId !== getRecipe.message.userId && role !== 'admin') {
+        return {
+            status: 401,
+            message: 'missing auth token',
+        };
     }
     
-    await recipeModel.deleteRecipeModel(objId);
-    return true;
+    const recipe = await recipeModel.deleteRecipeModel(objId);
+    if (recipe) return { status: 204 };
 };
 
 const uploadRecipeImageService = async (id, path, userId, role) => {
