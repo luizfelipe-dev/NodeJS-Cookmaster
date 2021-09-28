@@ -1,5 +1,5 @@
 const { ObjectId } = require('mongodb');
-const recipeModel = require('../../models/recipes/recipeModel');
+const recipeModel = require('../models/recipeModel');
 
 const createRecipeService = async (name, ingredients, preparation, userId) => {
     if (!name || !ingredients || !preparation) {

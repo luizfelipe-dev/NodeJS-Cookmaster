@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const validateToken = require('../middlewares/validateJWT');
-const recipeController = require('../controllers/recipes/recipeController');
+const recipeController = require('../controllers/recipeController');
 const upload = require('../middlewares/upload');
 
 const recipesRouter = Router();

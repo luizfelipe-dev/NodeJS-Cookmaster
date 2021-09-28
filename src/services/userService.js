@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
-const userModel = require('../../models/users/userModel');
+const userModel = require('../models/userModel');
 const { 
     isUserDataValid, 
     isUserEmailValid,
-} = require('../../validations/usarDataValidations');
+} = require('../validations/usarDataValidations');
 
 const jwtConfig = {
     expiresIn: '15m',
