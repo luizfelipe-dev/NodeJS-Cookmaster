@@ -4,14 +4,14 @@ const {
     isUserDataValid, 
     isUserEmailValid,
 } = require('../validations/usarDataValidations');
+require('dotenv').config();
 
 const jwtConfig = {
     expiresIn: '15m',
     algorithm: 'HS256',
 };
 
-// o segredo está aqui apenas para demonstração
-const secret = '12345';
+const secret = process.env.SECRET;
 
 const createUserService = async (name, email, password) => {
     const checkUserData = isUserDataValid(name, password);
