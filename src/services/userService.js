@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const jwt = require('jsonwebtoken');
 const userModel = require('../models/userModel');
 const { 
@@ -66,11 +67,29 @@ const getAllUsersService = async () => {
     return { status: 200, message: users };
 };
 
-const deleteAllUsersService = async () => {
-    const users = await userModel.deleteAllUsersModel();
+const findUserByIdService = async (id) => {
+    if (!ObjectId.isValid(id)) return { status: 500, message: 'invalid id' };
+
+    const user = await userModel.findUserById(id);
+    return { status: 200, message: user };
+};
+
+const deleteUserService = async (id, role, userId) => {
+    if (role !== 'admin' && id !== userId) {
+        return { 
+            status: 500,
+            message: 'permission denied',
+        };
+    }
+    
+    const foundedUser = await findUserByIdService(id);
+
+    console.log(foundedUser);
+
+    const user = await userModel.deleteUserModel();
     return { 
         status: 200, 
-        message: `${users.result.n} users deleted.`,
+        message: `${user} deleted.`,
     };
 };
 
@@ -78,5 +97,5 @@ module.exports = {
     createUserService,
     loginService,
     getAllUsersService,
-    deleteAllUsersService,
+    deleteUserService,
 };

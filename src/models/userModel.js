@@ -6,6 +6,12 @@ const findUserModel = async (email) => {
     return user;
 };
 
+const findUserById = async (id) => {
+    const db = await connection();
+    const user = await db.collection('users').findOne({ id });
+    return user;
+};
+
 const createUserModel = async (name, email, password) => {
     const db = await connection();
 
@@ -26,10 +32,13 @@ const loginModel = async (email, password) => {
 const getAllUsersModel = async () => {
     const db = await connection();
     const users = await db.collection('users').find({}).toArray();
-    return users;
+    
+    const usersWithoutPassword = users.map(({ password, ...rest }) => rest);
+
+    return usersWithoutPassword;
 };
 
-const deleteAllUsersModel = async () => {
+const deleteUserModel = async () => {
     const db = await connection();
     const users = await db.collection('users').remove({});
     return users;
@@ -38,7 +47,8 @@ const deleteAllUsersModel = async () => {
 module.exports = {
     createUserModel,
     findUserModel,  
+    findUserById,
     loginModel,  
     getAllUsersModel,
-    deleteAllUsersModel,
+    deleteUserModel,
 };

@@ -17,8 +17,11 @@ const getAllUsersController = async (req, res) => {
     return res.status(user.status).json(user.message);
 };
 
-const deleteAllUsersController = async (req, res) => {
-    const user = await userService.deleteAllUsersService();
+const deleteUserController = async (req, res) => {
+    const { id } = req.params;
+    const { role, userId } = req.user;
+
+    const user = await userService.deleteUserService(id, role, userId);
     return res.status(user.status).json({ message: user.message });
 };
 
@@ -26,5 +29,5 @@ module.exports = {
     createUserController, 
     loginController,
     getAllUsersController,
-    deleteAllUsersController,
+    deleteUserController,
 };

@@ -3,14 +3,15 @@ const {
     createUserController, 
     loginController,
     getAllUsersController,
-    deleteAllUsersController,
+    deleteUserController,
   } = require('../controllers/userController');
+const validateToken = require('../middlewares/validateJWT');
 
 const usersRouter = Router();
 
 usersRouter.get('/getall', getAllUsersController);
 usersRouter.post('/users', createUserController);
 usersRouter.post('/login', loginController);
-usersRouter.delete('/deleteall', deleteAllUsersController);
+usersRouter.delete('/deleteuser/:id', validateToken, deleteUserController);
 
 module.exports = usersRouter;
