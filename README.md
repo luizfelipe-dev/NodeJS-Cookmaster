@@ -2,13 +2,23 @@
 
 Através dessa aplicação, será possível realizar as operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão (ou `CRUD`, para as pessoas mais íntimas 😜).
 
-### :hammer: Desenvolvimento
+### :earth_americas: Online em: https://cookmastercrud.herokuapp.com/
 
-- Não há front-end neste projeto, servindo apenas para visualização das funcionalidades e da organização do código.
+<hr>
+
+##  :warning: Observações
 
 - A API foi desenvolvida dentro da pasta `./src`, seus testes de integração, na pasta `./src/integration-tests`;
+- A documentação da API está em desenvolvimento.
 
-### :briefcase: Habilidades praticadas
+## :paperclip: Utilização
+
+Recomendado a utilização do <a href="https://insomnia.rest/download">Insomnia</a> ou <a href="https://www.postman.com/">Postman</a> para utilização de toda a API, já que neste projeto não temos Front-End.
+
+<a href="https://insomnia.rest/download">![INSOMNIA](https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white) </a>
+<a href="https://www.postman.com/">![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white)</a>
+
+## :books: Habilidades praticadas
 
 Neste projeto iremos:
 
@@ -20,4 +30,4 @@ Neste projeto iremos:
 - Consultar arquivos do servidor através de uma api REST.
 - Desenvolver testes de integração
 
-![NODEJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) ![EXPRESS](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white) ![INSOMNIA](https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white) 
+![NODEJS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) ![EXPRESS](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white) 
