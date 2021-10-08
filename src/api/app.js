@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
 const usersRouter = require('../routes/usersRouter');
 const recipesRouter = require('../routes/recipesRouter');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors);
 app.use(usersRouter);
 app.use(recipesRouter);
 
