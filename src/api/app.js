@@ -13,8 +13,12 @@ app.use(recipesRouter);
 
 app.use('/images', express.static(path.join(__dirname, '..', 'uploads')));
 
+app.get('/', (_req, res) => {
+  res.status(200).sendFile(path.join(__dirname, '..', '/pages', '/index.html'));
+});
+
 app.use('*', (_req, res) => {
-  res.status(404).send('<h3>Page Not Found</h3>');
+  res.status(404).sendFile(path.join(__dirname, '..', '/pages', '/notFound.html'));
 });
 
 module.exports = app;

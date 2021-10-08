@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookmaster</title>
+    <style>
+        body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: black;
+    background-color:white;
+    border-radius: 10px;
+}
+
+a {
+    color: black;
+}
+
+header {
+    background-color:whitesmoke;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 20px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+}
+
+.instructions {
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    background-color:whitesmoke;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.endpoints-main {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.users, .recipes {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.route {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+            Bem vindo(a) a API Cookmasters!
+        </h1>
+    </header>
+    <main>
+        <div class="instructions">
+            <h1>Como utilizar?</h1>
+            <p>
+                <b>GET:</b> As rotas com método GET podem ser acessadas diretamente no navegador.
+            </p>
+            <p>
+                <b>POST, DELETE ou PUT:</b> Deverá ser utilizado o <a href="https://insomnia.rest/">Insomnia</a> ou o <a href="https://www.postman.com/">Postman</a>, passando no Body da requisição um arquivo .JSON com o objeto descrito na rota.
+            </p>
+            <p>
+                *Algumas rotas necessitam do Token de autenticação: inserir no campo 'authorization' do cabeçalho. 
+            </p>
+        </div>
+
+        <br />
+        <h1>Endpoints Disponíveis:</h1>
+
+        <div class="endpoints-main">
+            <div class="users">
+                <h2>Usuários:</h2>
+                <div class="route">
+                    <h4>Listar Todos os Usuários: (GET)</h4>
+                    <a href="https://cookmastercrud.herokuapp.com/getall">https://cookmastercrud.herokuapp.com/getall</a>
+                </div>
+                <p>
+                    <h4>- Cadastrar um usuário: (POST)</h4>
+                    
+                    https://cookmastercrud.herokuapp.com/users/
+                    <p> 
+                       Body: {
+                            "name" : "luiz",
+                            "email": "luiz@gmail.com",
+                            "password": "123"
+                        }
+                    </p>
+                    <div class="route">
+                    <h4>Efetuar Login: (POST)</h4>
+                    https://cookmastercrud.herokuapp.com/login
+                    <p>Body: {
+                        "email": "root@email.com",
+                        "password": "admin"
+                    }</p>
+                </p>
+                </div>
+                    <h4>Deletar Todos os Usuários: (DELETE)</h4>
+                    https://cookmastercrud.herokuapp.com/deleteall
+                </p>
+            </div>
+
+            <div class="recipes">
+                <h2>Receitas:</h2>
+                <div class="route">
+                    <h4>Listar todas as Receitas: (GET)</h4>
+                    <a href="https://cookmastercrud.herokuapp.com/recipes ">https://cookmastercrud.herokuapp.com/recipes </a>
+                </div>
+
+                <p>
+                    <h4>Listar uma Receita por ID: (GET)</h4>
+                    https://cookmastercrud.herokuapp.com/recipes/id_da_receita
+                </p> 
+
+                <div class="route">
+                    <h4>Cadastrar uma Receita: (POST) </h4>
+                    https://cookmastercrud.herokuapp.com/recipes<br />
+                    <p>
+                        Body: { "name": "Mingau de Aveia", <br />
+                        "ingredients": "Aveia, Banana, Leite e Canela",<br />
+                            "preparation": "Ferva o leite e acrescente todos os ingredientes."} <br />
+                    </p>
+                </div>
+
+                <p>
+                    <h4>Atualizar uma Receita por ID: (PUT)</h4>
+                    https://cookmastercrud.herokuapp.com/recipes/id_da_receita_a_ser_alterada</a>
+                    <p>
+                        Body: { "name": "Mingau de Aveia com Canela", <br />
+                        "ingredients": "Aveia, Banana, Leite e Canela",<br />
+                            "preparation": "Ferva o leite e misture todos os ingredientes por 10min."} <br />
+                    </p>
+                </p> 
+
+
+                <div class="route">
+                    <h4>Deletar uma Receita por ID: (DELETE)</h4>
+                    https://cookmastercrud.herokuapp.com/recipes/id_da_receita_a_ser_deletada</a>
+                </div> 
+
+                <p>
+                    <h4>Adicionar uma Imagem à Receita: (PUT)  </h4>
+                    https://cookmastercrud.herokuapp.com/recipes/id_da_receita/image
+                    <p>(OBS: Upload deve ser do tipo Multipart form Data)</p>
+                </p> 
+            </div>
+        </div>
+    <footer>
+        <p>Documentação em desenvolvimento...</p>
+    </footer>        
+    </main>
+</body>
+</html>
