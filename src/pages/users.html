@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        .endpoints-main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .users {
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            background-color: whitesmoke;
+            border-radius: 10px;
+            width: 96%;
+            margin: 20px 200px;
+        }
+
+        .route {
+            background-color: white;
+            padding-top: 10px;
+            padding-bottom: 25px;
+        }
+
+        .back {
+        text-decoration: none;
+        font-size: large;
+        font-weight: 700;
+        color: black;
+        background-color: whitesmoke;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    </style>
+</head>
+<body>
+    <main class="endpoints-main">
+        <div class="users">
+            <h2>Usuários:</h2>
+            <div class="route">
+                <h4>Listar Todos os Usuários: (GET)</h4>
+                <a href="https://cookmastercrud.herokuapp.com/getall">https://cookmastercrud.herokuapp.com/getall</a>
+            </div>
+
+            <p>
+                <h4>Cadastrar um usuário: (POST)</h4>
+                
+                https://cookmastercrud.herokuapp.com/users/
+                <p> 
+                   Body: {
+                        "name" : "luiz",
+                        "email": "luiz@gmail.com",
+                        "password": "123"
+                    }
+                </p>
+                <div class="route">
+                <h4>Efetuar Login: (POST)</h4>
+                https://cookmastercrud.herokuapp.com/login
+                <p>Body: {
+                    "email": "luiz@email.com",
+                    "password": "admin"
+                }</p>
+                <p>Um token será gerado e ficará ativo por 15min.</p>
+            </p>
+            </div>
+                <h4>Deletar seu próprio usuário: (DELETE)</h4>
+                https://cookmastercrud.herokuapp.com/deleteuser/id_do_usuario
+                <p>
+                Regra: Admins podem deletar qualquer conta.
+                Usuários só podem deletar a própria conta.
+                </p>
+            </p>
+        </div>   
+        <p>
+            <a href="/" class="back">Página Inicial</a>
+        </p>
+    </main>
+</body>
+</html>

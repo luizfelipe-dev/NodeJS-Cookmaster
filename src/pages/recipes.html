@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .recipes {
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            background-color: whitesmoke;
+            border-radius: 10px;
+            width: 96%;
+            margin: 20px 200px;
+        }
+        
+        .route {
+            background-color: white;
+            padding-top: 10px;
+            padding-bottom: 25px;
+        }
+
+        .back {
+        text-decoration: none;
+        font-size: large;
+        font-weight: 700;
+        color: black;
+        background-color: whitesmoke;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .endpoints-main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <main class="endpoints-main">
+        <div class="recipes">
+            <h2>Receitas:</h2>
+            <div class="route">
+                <h4>Listar todas as Receitas: (GET)</h4>
+                <a href="https://cookmastercrud.herokuapp.com/recipes ">https://cookmastercrud.herokuapp.com/recipes </a>
+            </div>
+
+            <p>
+                <h4>Listar uma Receita por ID: (GET)</h4>
+                https://cookmastercrud.herokuapp.com/recipes/id_da_receita
+            
+
+            <div class="route">
+                <h4>Cadastrar uma Receita: (POST) </h4>
+                https://cookmastercrud.herokuapp.com/recipes<br />
+                <p>
+                    Body: { "name": "Mingau de Aveia", <br />
+                    "ingredients": "Aveia, Banana, Leite e Canela",<br />
+                        "preparation": "Ferva o leite e acrescente todos os ingredientes."} <br />
+                </p>
+                <p>
+                    É necessário estar logado para cadastrar uma receita.
+                </p>
+            </div>
+
+            <p>
+                <h4>Atualizar uma Receita por ID: (PUT)</h4>
+                https://cookmastercrud.herokuapp.com/recipes/id_da_receita_a_ser_alterada</a>
+                <p>
+                    Body: { "name": "Mingau de Aveia com Canela", <br />
+                    "ingredients": "Aveia, Banana, Leite e Canela",<br />
+                        "preparation": "Ferva o leite e misture todos os ingredientes por 10min."} <br />
+                </p>
+                <p>
+                    É necessário estar logado para atualizar uma receita.
+                </p>
+            </p> 
+            <div class="route">
+                <h4>Deletar uma Receita por ID: (DELETE)</h4>
+                https://cookmastercrud.herokuapp.com/recipes/id_da_receita_a_ser_deletada</a>
+                <p>
+                    É necessário estar logado como admin para deletar uma receita.
+                </p>
+            </div> 
+
+            <p>
+                <h4>Adicionar uma Imagem à Receita: (PUT)  </h4>
+                https://cookmastercrud.herokuapp.com/recipes/id_da_receita/image
+                <p>(OBS: Upload deve ser do tipo Multipart form Data)</p>
+            </p> 
+            <p>
+                É necessário estar logado para adicionar uma imagem à uma receita.
+            </p>
+        </div>
+        <p>
+            <a href="/" class="back">Página Inicial</a>
+        </p>
+    <main>
+
+</body>
+</html>
