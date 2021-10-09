@@ -69,27 +69,29 @@ const getAllUsersService = async () => {
 
 const findUserByIdService = async (id) => {
     if (!ObjectId.isValid(id)) return { status: 500, message: 'invalid id' };
+    const objId = ObjectId(id);
 
-    const user = await userModel.findUserById(id);
-    return { status: 200, message: user };
+    const user = await userModel.findUserById(objId);
+    
+    return user;
 };
 
 const deleteUserService = async (id, role, userId) => {
     if (role !== 'admin' && id !== userId) {
-        return { 
-            status: 500,
-            message: 'permission denied',
-        };
+        return { status: 500, message: 'you can only remove your own account' };
     }
     
     const foundedUser = await findUserByIdService(id);
 
-    console.log(foundedUser);
+    if (!foundedUser || foundedUser === null) {
+        return { status: 500, message: 'user does not exists' };
+    }
 
-    const user = await userModel.deleteUserModel();
+    const { _id } = foundedUser;
+    const username = await userModel.deleteUserModel(ObjectId(_id));
     return { 
         status: 200, 
-        message: `${user} deleted.`,
+        message: `${username} was deleted.`,
     };
 };
 
